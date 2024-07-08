@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= title
+  body
+    h1= message
+    doctype html
+    html
+      head
+        title= title
+        script(src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async)
+        script.
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-XXXXXXXXXXXXXXXX",
+            enable_page_level_ads: true
+          });
+      body
+        h1= message
+        ins.adsbygoogle(
+          style="display:block",
+          data-ad-client="ca-pub-XXXXXXXXXXXXXXXX",
+          data-ad-slot="XXXXXXXXXX",
+          data-ad-format="auto")
+        script.
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          

@@ -1,0 +1,19 @@
+{
+  "name": "relax-ia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {pip install google-api-python-client
+    "express": "^4.17.1",
+    "pug": "^3.0.2"
+  }
+}
+curl $REPLIT_DB_URL -d 'key = AIzaSyCQ0j6RSbM
+pip install google-api-python-client npm install -g @ionic/client pip install flask cd ruta/al/directorio python app.py'

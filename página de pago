@@ -1,0 +1,98 @@
+# Importaciones necesarias
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+from googleapiclient.http import MediaFileUpload
+from flask import Flask, request, jsonify
+import os
+from moviepy.editor import VideoFileClip
+
+# Configuraciones
+DEVELOPER_KEY = AIzaSyCQ0j6RSbM-wjw-PpLCaEd2u9R0h63CrfE
+UPLOAD_FILE_PATH = "path/to/your/video.mp4"
+YOUTUBE_UPLOAD_URL = 'https://www.googleapis.com/upload/youtube/v3/videos'
+
+# Inicializar la aplicación Flask
+app = Flask(__Youtube__)
+
+def youtube_upload(filename, title, description, keywords, privacyStatus):
+    """Subir un video a YouTube."""
+    youtube = build('youtube', 'v3', developerKey=
+AIzaSyCQ0j6RSbM-wjw-PpLCaEd2u9R0h63CrfE
+    media_file = MediaFileUpload(filename, mimetype='video/mp4', chunksize=-1, resumable=True)
+
+    request = youtube.videos().insert(
+        part='snippet,status',
+        body={
+            'snippet': {
+                'title': title,
+                'description': description,
+                'tags': keywords,
+            },
+            'status': {
+                'privacyStatus': privacyStatus
+            }
+        },
+        media_body=media_file
+    )
+
+    response = None
+    try:
+        response = request.execute()
+    except HttpError as e:
+        print(f'An HTTP error occurred: {e}')
+        # Aquí puedes manejar el error, por ejemplo, enviando un correo electrónico o escribiendo un registro.
+
+    if response:
+        print(f'Video uploaded successfully! Video ID: {response["id"]}')
+        # Aquí puedes manejar el éxito, por ejemplo, actualizando una base de datos o mostrando un mensaje.
+
+def extract_metadata(filename):
+    """Extraer metadatos de un video."""
+    try:
+        clip = VideoFileClip(filename)
+        title = os.path.splitext(os.path.basename(filename))[0] # Extraer título del nombre del archivo
+        description = "Descripción automática del video" # Puedes agregar lógica para extraer la descripción
+        keywords = ["palabras clave", "keywords"] # Puedes agregar lógica para extraer palabras clave
+        return title, description, keywords
+    except Exception as e:
+        print(f'Error al extraer metadatos: {e}')
+        return None, None, None
+
+@app.route('/upload', methods=['POST'])
+def upload_video():
+    """Recibir una solicitud de la app Android para subir un video."""
+    filename = request.form.get('filename')
+    title = request.form.get('title')
+    description = request.form.get('description')
+    keywords = request.form.get('keywords')
+    privacyStatus = request.form.get('privacyStatus')
+
+    # Subir el video
+    youtube_upload(filename, title, description, keywords, privacyStatus)
+
+    return jsonify({'message': 'Video uploaded successfully!'})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+# Ejemplo de uso para extraer metadatos y subir video
+if __name__ == '__main__':
+    # Extraer metadatos del video
+    title, description, keywords = extract_metadata(UPLOAD_FILE_PATH)
+    print(f'Título: {title}')
+    print(f'Descripción: {description}')
+    print(f'Palabras clave: {keywords}')
+
+    # Subir video a YouTube
+    youtube_upload(
+        filename=UPLOAD_FILE_PATH, 
+        title=title, 
+        description=description, 
+        keywords=keywords,
+        privacyStatus="public"
+    )
+    
+curl $REPLIT_DB_URL -d 'key = value'
+curl $REPLIT_DB_URL -d 'key = value'
+curl $REPLIT_DB_URL -d 'key = value'
+curl $REPLIT_DB_URL -d 'key = value'

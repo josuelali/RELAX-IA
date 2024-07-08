@@ -1,0 +1,35 @@
+{ pkgs }: {
+  deps = [
+    pkgs.haskellPackages.gi-gsk
+    pkgs.haskellPackages.propane
+    pkgs.rPackages.bettermc
+    pkgs.rPackages.RPPairwiseDesign
+    pkgs.go2nix
+    pkgs.rPackages.visvow
+    pkgs.lua53Packages.lyaml
+    pkgs.rPackages.r2dictionary
+    pkgs.rPackages.gratia
+    pkgs.python38Packages.pypoint
+    pkgs.perlPackages.DBFile
+    pkgs.gnomeExtensions.dim-on-battery-power
+    pkgs.emacs27Packages.verify-url
+    pkgs.python38Packages.python-stdnum
+    pkgs.haskellPackages.gogol-apps-calendar
+    pkgs.perl534Packages.AnyEventRabbitMQ
+    pkgs.luaPackages.inspect
+    pkgs.haskellPackages.random-bytestring
+    pkgs.haskellPackages.dependent-sum-aeson-orphans
+    pkgs.faust2csound
+    pkgs.lua53Packages.lua-yajl
+    pkgs.xmonad_log_applet
+    pkgs.haskellPackages.AesonBson
+    pkgs.rPackages.RBioinf
+    pkgs.python39Packages.azure-mgmt-extendedlocation
+    pkgs.rPackages.GFDsurv
+    pkgs.vimPlugins.gruvbox
+    pkgs.trellis
+    pkgs.rPackages.vtpnet
+    pkgs.livedl
+    pkgs.nodejs-20_x
+  ];
+}
